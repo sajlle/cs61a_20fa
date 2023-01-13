@@ -100,7 +100,7 @@ def square_update(num_rolls, player_score, opponent_score, dice=six_sided):
 # BEGIN PROBLEM 4
 "*** YOUR CODE HERE ***"
 def perfect_square(score):
-    i = 1 # 原来是i = 1,忽略了i = 0的情况，单纯把i当计数工具了, i=1也能通过测验
+    i = 1
     while i*i <= score:
         if i ** 2 == score:
             return True
@@ -153,9 +153,7 @@ def play(strategy0, strategy1, update,
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
-    # take_turn算当前回合的分数
-    # update算所有回合总分，先simple_update,如果复合perfect_update,返回该值
-    # update 返回值大于等于100，该玩家获胜，游戏终止，返回玩家1和玩家2的最终总分
+    # update 返回值大于等于100，该玩家获胜，游戏终止，返回玩家0和玩家1的最终总分
     # 一个策略每轮只能调用一次，玩家0的回合只能用策略0，玩家1的回合只能用策略1
     # 当前玩家回合是0, 下一回合的玩家是 1-0
     # 策略是当前玩家要扔骰子的次数
@@ -249,8 +247,7 @@ def make_averaged(original_function, total_samples=1000):
     """
     # BEGIN PROBLEM 8
     "*** YOUR CODE HERE ***"
-    # 接收一个函数和整数（调用次数），返回调用函数ori_f总共total_samples的结果的平均值
-    # 此题重点在 "*args"的使用，*arg可接受任意数目的参数
+    # 此题重点在 "*args"的使用，*args可接受任意数目的参数
     def total_averaged(*arg):
         sum = 0
         for i in range(total_samples):
@@ -273,8 +270,6 @@ def max_scoring_num_rolls(dice=six_sided, total_samples=1000):
     """
     # BEGIN PROBLEM 9
     "*** YOUR CODE HERE ***"
-    # 返回值是数字，正数
-    # 计算num_roll in range(10)的时候，roll_dice的运行结果，算出最大值，且找出最大值时num_roll值，
     list = []
     averaged_dice = make_averaged(roll_dice,total_samples)
     for i in range(1,11):

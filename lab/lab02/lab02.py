@@ -120,6 +120,7 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
+    # 此题解决函数嵌套问题，就搞定了90%
     def nested_f(m,n):
         return lambda x: n(m(x))
     def h(n):
